@@ -10,6 +10,7 @@ class Page {
       width: FIELD_WIDTH
     });
 
+
     this._controlPanel - new ControlPanel({
 
     });

@@ -1,6 +1,6 @@
 .cell, .wall {
-    width: 23px;
-    height: 23px;
+    width: 13px;
+    height: 13px;
     background-color: #0fff38;
     position: absolute;
 }
