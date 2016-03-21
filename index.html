@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Labyrinth</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/controlPanel.js" defer></script>
+    <script src="js/model/cell.js" defer></script>
+    <script src="js/field.js" defer></script>
+    <script src="js/page.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-
+<div data-component="page">
+    <div class="lab-status" data-component="status"></div>
+    <div class="lab-field" data-component="field"></div>
+</div>
 </body>
 </html>
