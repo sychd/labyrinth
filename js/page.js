@@ -10,9 +10,9 @@ class Page {
       width: FIELD_WIDTH
     });
 
-
-    this._controlPanel - new ControlPanel({
-
+    this._controlPanel = new ControlPanel({
+      element: this._el.querySelector('[data-component="control"]'),
+      field: this._field
     });
   }
 }

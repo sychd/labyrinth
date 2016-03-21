@@ -10,91 +10,12 @@ class Field {
     finish = null;
 
     this.initField();
-    this.getPath();
+    this.clearVisitedFlags();//for correct work pathFinder
+
+    this._pf = new PathFinder();
   }
 
-  initField() {
-    this._generateField();
-    this._renderField();
-  }
-
-  getPath() {
-    this._clearVisitedFlags();
-
-    let stack = [];
-    let currentCell = start;
-    currentCell.isVisited = true;
-    while (currentCell !== finish) {
-      let directions = this._getDirections(currentCell);
-
-
-      if (directions.length > 0) {
-        stack.push(currentCell);
-
-        let nextCell = directions[this._getRandomNeighbour(directions)];
-        this._buildWay(currentCell, nextCell);
-        currentCell = nextCell;
-        currentCell.isVisited = true;
-      } else if (stack.length != 0) {
-        currentCell = stack.pop();
-      } else {
-        console.log('no exit.')
-      }
-    }
-
-    for (let i = 0; i < way.length; i++) {
-      way[i].divElem.style.backgroundColor = 'darkred';
-    }
-
-    start.divElem.style.backgroundColor = 'blue';
-    finish.divElem.style.backgroundColor = 'red';
-  }
-
-  _buildWay(curCell, nextCell) {
-    way.push(nextCell);
-    if (curCell.i === nextCell.i) {
-      if (curCell.j < nextCell.j) {         //right
-        way.push(cells[curCell.i][curCell.j + 1]);
-      } else {                              //left
-        way.push(cells[curCell.i][curCell.j - 1]);
-      }
-    } else {
-      if (curCell.i < nextCell.i) {         //bot
-        way.push(cells[curCell.i + 1][curCell.j]);
-      } else {                              //top
-        way.push(cells[curCell.i - 1][curCell.j]);
-      }
-    }
-  }
-
-  _getDirections(cell) {
-    let neighbours = [];
-
-    if (!cells[cell.i][cell.j + 1].isWall) {
-      if (!cells[cell.i][cell.j + 2].isVisited) {
-        neighbours.push(cells[cell.i][cell.j + 2]);
-      }
-    }
-    if (!cells[cell.i][cell.j - 1].isWall) {
-      if (!cells[cell.i][cell.j - 2].isVisited) {
-        neighbours.push(cells[cell.i][cell.j - 2]);
-      }
-    }
-    if (!cells[cell.i + 1][cell.j].isWall) {
-      if (!cells[cell.i + 2][cell.j].isVisited) {
-        neighbours.push(cells[cell.i + 2][cell.j]);
-      }
-    }
-    if (!cells[cell.i - 1][cell.j].isWall) {
-      if (!cells[cell.i - 2][cell.j].isVisited) {
-        neighbours.push(cells[cell.i - 2][cell.j]);
-      }
-    }
-
-    return neighbours;
-  }
-
-  _clearVisitedFlags() {
+  clearVisitedFlags() {
     for (let i = 0; i < this._height; i++) {
       for (let j = 0; j < this._width; j++) {
         cells[i][j].isVisited = false;
@@ -102,9 +23,20 @@ class Field {
     }
   }
 
+  initField() {
+    this._generateField();
+    this._renderField();
+  }
+
   _renderField() {
-    let field = document.createElement('div');
+    let field = document.getElementById('field-maze');
+    if(field) {
+      field.parentNode.removeChild(field);
+    }
+
+    field = document.createElement('div');
     field.className = 'field';
+    field.id = 'field-maze';
 
     for (let i = 0; i < this._height; i++) {
       for (let j = 0; j < this._width; j++) {
@@ -127,8 +59,8 @@ class Field {
       elem.className = 'cell';
     }
 
-    elem.style.left = cell.i * 13 + 'px';
-    elem.style.top = cell.j * 13 + 'px';
+    elem.style.left = cell.i * 6 + 'px';
+    elem.style.top = cell.j * 6 + 'px';
     elem.id = 'gridElement[' + cell.i + '][' + cell.j + ']';
 
     cell.divElem = elem;
@@ -174,7 +106,8 @@ class Field {
       }
     }
 
-    finish = nextCell;
+    //finish = nextCell;
+    finish = cells[this._height - 2][this._width - 2];
   }
 
   _isAllVisited() {
@@ -280,7 +213,7 @@ class Field {
     }
 
     cells[i][j].isWall = false;
-    cells[i][j].isVisited = true;// Do we rly need it? --check
+    cells[i][j].isVisited = true;
   }
 
 }

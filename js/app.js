@@ -8,6 +8,7 @@ let   cells = [],
       start = null,
       finish = null,
       way = [];
+
 window.onload = function () {
   let page = new Page({
     element: document.querySelector('[data-component="page"]')
