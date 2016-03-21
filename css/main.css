@@ -10,11 +10,11 @@
 }
 
 .start {
-    background-color: #005aff;
+    background-color: blue;
 }
 
 .finish {
-    background-color: #ff0600;
+    background-color: red;
 }
 
 .field {

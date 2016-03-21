@@ -40,10 +40,6 @@ class PathFinder {
       }
     }
 
-    for (let i = 0; i < way.length; i++) {
-      way[i].divElem.style.backgroundColor = 'darkred';
-    }
-
     start.divElem.style.backgroundColor = 'blue';
     finish.divElem.style.backgroundColor = 'red';
   }
