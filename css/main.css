@@ -1,6 +1,6 @@
 .cell, .wall {
-    width: 6px;
-    height: 6px;
+    width: 9px;
+    height: 9px;
     background-color: greenyellow;
     position: absolute;
 }
@@ -54,5 +54,9 @@
 
 .btn:active{
     background-color: #1a5938;
+}
+.btn:disabled {
+    opacity: 0.3;
+    background-color: #45e893;
 }
 

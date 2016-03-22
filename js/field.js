@@ -58,9 +58,8 @@ class Field {
     } else {
       elem.className = 'cell';
     }
-
-    elem.style.left = cell.i * 6 + 'px';
-    elem.style.top = cell.j * 6 + 'px';
+    elem.style.left = cell.i * 9 + 'px';
+    elem.style.top = cell.j * 9 + 'px';
     elem.id = 'gridElement[' + cell.i + '][' + cell.j + ']';
 
     cell.divElem = elem;

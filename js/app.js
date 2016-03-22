@@ -2,8 +2,8 @@
  * Created by Sych on 19.03.2016.
  */
 "use strict";
-const FIELD_HEIGHT = 85,
-      FIELD_WIDTH = 55;
+const FIELD_HEIGHT = 55,
+      FIELD_WIDTH = 35;
 let   cells = [],
       start = null,
       finish = null,
