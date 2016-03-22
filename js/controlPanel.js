@@ -5,13 +5,13 @@ class ControlPanel {
     this._field = options.field;
 
     this.genBtn = document.getElementById('genBtn');
-    this.genBtn.addEventListener('click',this._genBtnClick);
+    this.genBtn.addEventListener('click',this.genBtnClick);
 
     this.findBtn = document.getElementById('findBtn');
-    this.findBtn.addEventListener('click',this._findBtnClick);
+    this.findBtn.addEventListener('click',this.findBtnClick);
   }
 
-  _genBtnClick(){
+  genBtnClick(){
     new Page({
       element: document.querySelector('[data-component="page"]')
     });
@@ -19,7 +19,7 @@ class ControlPanel {
   }
 
 
-  _findBtnClick(e){
+  findBtnClick(e){
     let c = -1;
 
     e.target.disabled = true;
@@ -35,7 +35,7 @@ class ControlPanel {
         finish.divElem.style.backgroundColor = 'red';
       }
     },1);
-    //or, for instant
+    //or, for instantrender
     //for (let i = 0; i < way.length; i++) {
     //  way[i].divElem.style.backgroundColor = 'darkred';
     //}

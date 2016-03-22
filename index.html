@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Labyrinth</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="lib/mocha.css">
+
     <script src="js/pathFinder.js" defer></script>
     <script src="js/controlPanel.js" defer></script>
     <script src="js/Entities/cell.js" defer></script>
@@ -12,13 +14,32 @@
     <script src="js/app.js" defer></script>
 </head>
 <body>
-<div data-component="page" class="page">
-    <div class="control-panel" data-component="control">
-        <input type="button" value="Построить лабиринт" id="genBtn" class="btn"/>
-        <br/>
-        <input type="button" value="Найти выход" id="findBtn" class="btn"/>
+    <div data-component="page" class="page">
+        <div class="control-panel" data-component="control">
+            <input type="button" value="Новый лабиринт" id="genBtn" class="btn"/>
+            <br/>
+            <input type="button" value="Найти выход" id="findBtn" class="btn"/>
+        </div>
+        <div class="field-panel" data-component="field"></div>
     </div>
-    <div class="field-panel" data-component="field"></div>
-</div>
 </body>
+<div style="width:505px; margin:auto;">
+    <div id="mocha"></div>
+</div>
+
+    <!--test_script-->
+    <script src="lib/mocha.js"></script>
+    <script>
+        mocha.setup('bdd');
+    </script>
+    <script src="lib/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+    </script>
+
+    <script src="js/tests.js"></script>
+
+    <script>
+        mocha.run();
+    </script>
 </html>

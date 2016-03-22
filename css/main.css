@@ -60,3 +60,10 @@
     background-color: #45e893;
 }
 
+.page {
+    width: 800px;
+    padding-top:50px;
+    height:300px;
+    margin:0 auto;
+}
+

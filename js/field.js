@@ -104,7 +104,6 @@ class Field {
         currentCell = stack.pop();
       }
     }
-
     //finish = nextCell;
     finish = cells[this._height - 2][this._width - 2];
   }

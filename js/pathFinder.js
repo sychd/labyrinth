@@ -1,5 +1,5 @@
 class PathFinder {
-  constructor(options) {
+  constructor() {
     this._clearPath();
     this._getPath();
   }
