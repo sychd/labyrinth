@@ -1,3 +1,4 @@
+'use strict';
 class ControlPanel {
   //n2rf
   constructor(options){
